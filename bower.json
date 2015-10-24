@@ -1,0 +1,28 @@
+{
+  "name": "nyaacat",
+  "description": "Nyaa cat.",
+  "main": "nyaa.js",
+  "authors": [
+    "XadillaX <admin@xcoder.in>",
+    "Yutou",
+    "Minary <i@f10.moe>",
+    "Hiccup",
+    "PlusmanCN"
+  ],
+  "license": "UNLICENSED",
+  "homepage": "https://github.com/NyaaFinder/nyaacat",
+  "moduleType": [],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.5",
+    "jquery": "~2.1.4",
+    "jquery-backstretch": "~2.0.4"
+  }
+}
