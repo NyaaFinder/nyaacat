@@ -17,6 +17,8 @@ module.exports = {
 
         database: "nyaa",
         username: "lsdkfj",
-        password: "bfaabefc7733fcf42d5378df72abd12f"
+        password: "bfaabefc7733fcf42d5378df72abd12f",
+
+        connectionLimit: 10
     }
 };
