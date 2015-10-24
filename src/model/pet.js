@@ -13,7 +13,7 @@ var Pet = toshihiko.define("pets", [
     { name: 'mail',			column: 'mail', 		type: toshihiko.Type.String },
     { name: 'bluetooth',	column: 'bluetooth',	type: toshihiko.Type.String },
     { name: 'pet_type', 	column: 'pet_type', 	type: toshihiko.Type.String },
-    { name: 'token',        column: 'token',        type: toshihiko.Type.String }
+    { name: 'token',		column: 'token',		type: toshihiko.Type.String }
 ]);
 
 Pet.find = function(callback) {
