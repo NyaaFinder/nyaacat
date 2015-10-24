@@ -7,5 +7,6 @@ exports.isStringEmpty = function(str){
 };
 
 exports.generateToken = function(str1, str2){
-    return str1 + str2 + 'lalala';
+    var timestamp = parseInt(new Date().getTime()/1000);
+    return str1 + str2 + 'lalala' + timestamp;
 };

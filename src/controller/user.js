@@ -7,45 +7,64 @@ var common_util = require('lib/common_util');
 
 module.exports = function(router) {
 
-    router.get('/user', function(req, resp){
+    router.get('/', function(req, resp){
+
         var token = req.query.token;
         var pet_id = req.query.pet_id;
 
         if(common_util.isStringEmpty(token)){
-            //TODO redirect
-            resp.status(400).json({ 
+            return resp.status(400).json({ 
                 is_success: false,
-                message: 'can not be null.' 
+                message: 'user not login.' 
             });
         }
 
         if(!val.isInt(pet_id)){
-            resp.status(400).json({ 
+            return resp.status(400).json({ 
                 is_success: false,
                 message: 'pet_id can not be null.' 
             });
         }
+    
+        async.waterfall([
+            function(next){
+                Pet.findById(pet_id, function(err, pet){
+                    if(err){
+                        return next(err);     
+                    }
+                    console.log('token:', token);
+                    console.log('@@@pet:', pet.token);
+                    if(token !== pet.token) {
+                        return resp.status(400).json({
+                            is_success: false,
+                            message: 'User not login.'
+                        });
+                    }
 
-        Pet.getById(pet_id, function(err, pet){
+                    var data = {
+                        is_success: true, 
+                        pet_name: pet.pet_name,
+                        email: pet.email,
+                        pet_type: pet.pet_type,
+                        bluetooth: pet.bluetooth
+                    };
+
+                    return next(null, data);
+                });
+            }
+        ], function(err, result){
             if(err){
                 return resp.status(500).json({
                     is_success: false,
                     message: 'System error'
-                });
+                });  
             }
-            var data = {
-                is_success: true, 
-                pet_name: pet.pet_name,
-                email: pet.email,
-                pet_type: pet.pet_type,
-                bluetooth: pet.bluetooth
-            };
-            return resp.send(data);
+            return resp.send(result);
         });
+        
     });
 
-    router.post('/user/register', function(req, resp){
-        console.log('#####');
+    router.post('/register', function(req, resp){
         var pet_name = req.query.pet_name;
         var pet_type = req.query.pet_type;
         var password = req.query.password;
@@ -95,18 +114,18 @@ module.exports = function(router) {
         });
     });
 
-    router.post('/user/login', function(req, resp){
+    router.post('/login', function(req, resp){
         var pet_name = req.body.pet_name;
         var password = req.body.password;
 
         if(common_util.isStringEmpty(pet_name)){
-            resp.status(400).json({ 
+            return resp.status(400).json({ 
                 is_success: false,
                 message: 'pet_name can not be null.' 
             });
         }
         if(common_util.isStringEmpty(password)){
-            resp.status(400).json({ 
+            return resp.status(400).json({ 
                 is_success: false,
                 message: 'password can not be null.' 
             });
@@ -114,33 +133,43 @@ module.exports = function(router) {
 
         async.waterfall([
             function(next){
-                pet.getByNameAndPassword(pet_name, password, function(err, pet){
+                Pet.findByNameAndPassword(pet_name, password, function(err, pet){
+                    console.log('*****');
                     if(err){
                         return next(err);
                     }
+
                     return next(null, pet);
                 });
             },
             function(pet, next){
-                if(pet){
-                    pet.token = common_util.generateToken(pet_name, password);
-                    pet.update(function(err, pet){
-                        if(err){
-                            return next(err);
-                        }
-                        return next(null, pet);
-                    });
+                if(!pet){
+                    return next(null, null);    
                 }
-                return next(null, pet);
+
+                pet.token = common_util.generateToken(pet_name, password);
+                pet.update(function(err, pet){
+                    if(err){
+                        return next(err);
+                    }
+                    console.log('*****pet', pet);
+                    return next(null, pet);
+                });
             }
         ], function(err, pet){
-            if(!pet){
-                resp.status(400).json({
+            if(err){
+                return resp.status(500).json({
                     is_success: false,
-                    message: 'Can not find user.'
+                    message: 'System error'
+                });
+            }
+            if(!pet){
+                return resp.status(400).json({
+                    is_success: false,
+                    message: 'Can not find user or password is wrong.'
                 });
             } else {
-                resp.send({
+                return resp.send({
                     is_success: true,
                     token: pet.token
                 });                

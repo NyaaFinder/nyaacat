@@ -21,7 +21,7 @@ Pet.find = function(callback) {
 };
 
 Pet.findById = function(pet_id, callback){
-    toshihiko.where({pet_id: pet_id}).findOne(function(err, pet){
+    Pet.where({pet_id: pet_id}).findOne(function(err, pet){
         if(err) {
             return callback(err);
         }
@@ -29,8 +29,8 @@ Pet.findById = function(pet_id, callback){
     });
 };
 
-Pet.findByNameAndPassword = function(name, password){
-    toshihiko.where({pet_name: pet_name, password: password}).findOne(function(err, pet){
+Pet.findByNameAndPassword = function(name, password, callback){
+    Pet.where({pet_name: name, password: password}).findOne(function(err, pet){
         if(err){
             return callback(err);
         }
@@ -39,13 +39,13 @@ Pet.findByNameAndPassword = function(name, password){
 };
 
 Pet.create = function(data, callback){
-    var pet = Model.build({
+    var pet = Pet.build({
 		pet_name: data.pet_name,
 		password: data.password,
 		mail: data.mail,
 		bluetooth: data.bluetooth,
-		pet_type: pet_type,
-        token: token || null
+		pet_type: data.pet_type,
+        token: data.token || null
 	});
 	pet.insert(function(err, pet) {
 		if(err){
