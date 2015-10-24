@@ -23,7 +23,11 @@ PetCoordinate.calculateCoordinate = function(petId, timestamp, callback) {
     var PetPosition = util.getModel("PetPosition");
     PetPosition.where({
         "pet_id": petId,
-        timestamp: timestamp
+        //timestamp: timestamp
+        timestamp: {
+            ">=": timestamp - 2,
+            "<=": timestamp + 2
+        }
     }).find(function(err, positions) {
         if(err) return callback(err);
         if(!positions || !positions.length) callback();
