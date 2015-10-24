@@ -30,3 +30,5 @@ bower_components
 f2e/build
 
 config/!default.js
+
+**/.DS_Store
