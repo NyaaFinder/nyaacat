@@ -9,7 +9,7 @@ install:
 		bower install
 
 build: install
-	@cd f2e && npm install && npm run build
+	@cd f2e && npm install && npm run deploy
 
 rebuild: clean-build build
 
