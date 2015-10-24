@@ -29,10 +29,15 @@ module.exports = function(router) {
 		        	timestamp : body.timestamp
         		}).save(next);
         	}
-        ], function(err) {
+        ], function(err, data) {
         	if (err) return resp.status(401).end(err);
+            resp.send({
+                is_success: true,
+                position: data
+            });
         	return resp.status(200).end();
         });
     });
+
 };
 
