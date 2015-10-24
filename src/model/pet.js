@@ -7,12 +7,13 @@
 var toshihiko = require("lib/toshihiko");
 
 var Pet = toshihiko.define("pets", [
-    { name: "pet_id", 		column: "pet_id", 		type: toshihiko.TYPE.Integer, primaryKey: true },
-    { name: "pet_name", 	column: "pet_name", 	type: toshihiko.TYPE.String },
-    { name: 'password', 	column: 'password', 	type: toshihiko.TYPE.String },
-    { name: 'mail',			column: 'mail', 		type: toshihiko.TYPE.String },
-    { name: 'bluetooth',	column: 'bluetooth',	type: toshihiko.TYPE.String },
-    { name: 'pet_type', 	column: 'pet_type', 	type: toshihiko.TYPE.String}
+    { name: "pet_id", 		column: "pet_id", 		type: toshihiko.Type.Integer, primaryKey: true },
+    { name: "pet_name", 	column: "pet_name", 	type: toshihiko.Type.String },
+    { name: 'password', 	column: 'password', 	type: toshihiko.Type.String },
+    { name: 'mail',			column: 'mail', 		type: toshihiko.Type.String },
+    { name: 'bluetooth',	column: 'bluetooth',	type: toshihiko.Type.String },
+    { name: 'pet_type', 	column: 'pet_type', 	type: toshihiko.Type.String},
+    { name: 'token',		column: 'token',		type: toshihiko.Type.String}
 ]);
 
 Pet.find = function(callback) {
