@@ -22,7 +22,7 @@ var Login = React.createClass({
     render: function() {
 
         return (
-            <div className="login">
+            <div className="dialog login">
                 <label for="userid" name="userid">用户名</label>
                 <input type="text" className="userId" />
                 <label for="password" name="password">密码</label>
