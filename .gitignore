@@ -32,3 +32,4 @@ f2e/build
 config/!default.js
 
 **/.DS_Store
+.idea
