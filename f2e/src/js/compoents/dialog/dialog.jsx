@@ -2,6 +2,7 @@
 import React from 'react';
 import AppActions from'../../actions/AppActions';
 import AppStore from'../../stores/AppStore';
+import classNames from 'classnames';
 import Login from './login.jsx';
 import Register from './register.jsx';
 import './dialog.less';
@@ -33,7 +34,21 @@ var Dialog = React.createClass({
 
         return (
             <div className="dialog">
-                {this.renderItem()}
+                <div className="userForm">
+                    {this.renderItem()}
+                </div>
+                <div className="sideBar">
+                    <div className={classNames({
+                        'active':this.state.isLogin
+                    })} >
+                        登陆
+                    </div>
+                    <div className={classNames({
+                        'active':!this.state.isLogin
+                    })} >
+                        注册
+                    </div>
+                </div>
             </div>
         );
     }
