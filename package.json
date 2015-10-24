@@ -32,7 +32,8 @@
     "fbbk-json": "0.0.8",
     "sugar": "^1.4.1",
     "supertest": "^1.1.0",
-    "toshihiko": "^0.6.0"
+    "toshihiko": "^0.6.0",
+    "validator": "^4.2.0"
   },
   "devDependencies": {
     "del": "^2.0.2",
