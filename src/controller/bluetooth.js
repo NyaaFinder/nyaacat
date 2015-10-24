@@ -66,9 +66,10 @@ module.exports = function(router) {
                 if(!pet || !pet.length) return resp.status(404).end('Not find pet!');
                 petCoordinate.where({
                     pet_id : pet[0].pet_id
-                }).limit([0, 50]).orderBy('timestamp asc').find(next);
+                }).limit([0, 50]).orderBy('timestamp asc').find(next, true);
             }
         ], function(err, data) {
+            console.log(data);
             if (err) return resp.status(401).send({
                 is_success: false,
                 message : err.message
