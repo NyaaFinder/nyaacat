@@ -10,11 +10,17 @@ module.exports = function(router) {
         console.log(body);
         var pet_id, timestamp;
         //参数校验
+
+        var rssi = parseInt(rssi);
+        var lat = parseFloat(lat);
+        var lng = parseFloat(lng);
+
         if (!body) return resp.status(401).end('No body!');
-        if (typeof body.rssi !== 'number') return resp.status(401).end('rssi type error!');
-        if (typeof body.lng !== 'number') return resp.status(401).end('lng type error!');
-        if (typeof body.lat !== 'number') return resp.status(401).end('lat type error!');
+        if (rssi === 'NaN') return resp.status(401).end('rssi type error!');
+        if (lng === 'NaN') return resp.status(401).end('lng type error!');
+        if (lat === 'NaN') return resp.status(401).end('lat type error!');
         if (typeof body.identifier !== 'string') return resp.status(401).end('identifier type error!');
+
 
         async.waterfall([
         	function(next) {
@@ -36,7 +42,6 @@ module.exports = function(router) {
                 petCoordinate.calculateCoordinate(pet_id, timestamp, next)
             }
         ], function(err, data) {
-            console.log(data);
         	if (err) return resp.status(401).send({
                 is_success: false,
                 message : err.message
@@ -64,7 +69,7 @@ module.exports = function(router) {
                 }).limit(50).orderBy('timestamp asc').find(next);
             }
         ], function(err, data) {
-            console.log(data);
+            console.log(err, data);
             if (err) return resp.status(401).send({
                 is_success: false,
                 message : err.message
