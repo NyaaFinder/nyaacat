@@ -3,11 +3,11 @@ var util = require("util");
 var coordinator = require("lib/coordinator");
 
 var PetCoordinate = toshihiko.define("pets_coordinate", [
-    { name: "id", column: "id", type: toshihiko.TYPE.Integer, primaryKey: true },
-    { name: "pet_id", column: "pet_id", type: toshihiko.TYPE.Integer },
-    { name: "timestamp", column: "timestamp", type: toshihiko.TYPE.Integer },
-    { name: "lng", column: "lng", type: toshihiko.TYPE.Float },
-    { name: "lat", column: "lat", type: toshihiko.TYPE.Float }
+    { name: "id", column: "id", type: toshihiko.Type.Integer, primaryKey: true },
+    { name: "pet_id", column: "pet_id", type: toshihiko.Type.Integer },
+    { name: "timestamp", column: "timestamp", type: toshihiko.Type.Integer },
+    { name: "lng", column: "lng", type: toshihiko.Type.Float },
+    { name: "lat", column: "lat", type: toshihiko.Type.Float }
 ]);
 
 /**
