@@ -1,0 +1,29 @@
+{
+  "name": "nyaacat",
+  "version": "1.0.0",
+  "description": "Nyaa cat.",
+  "main": "nyaa.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/XadillaX/nyaacat.git"
+  },
+  "author": "XadillaX <admin@xcoder.in>",
+  "contributors": [
+    "Yutou",
+    "Minary <i@f10.moe>",
+    "Hiccup",
+    "PlusmanCN"
+  ],
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/XadillaX/nyaacat/issues"
+  },
+  "homepage": "https://github.com/XadillaX/nyaacat#readme",
+  "dependencies": {
+    "express": "^4.13.3",
+    "toshihiko": "^0.6.0"
+  }
+}
