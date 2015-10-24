@@ -5,6 +5,7 @@ import AppStore from'../../stores/AppStore';
 import Socket from 'socket.io-client';
 import Dialog from '../dialog/dialog.jsx';
 import Login from '../dialog/login.jsx';
+import Foot from '../foot/foot.jsx';
 
 var ReactPropTypes = React.PropTypes;
 
@@ -29,7 +30,9 @@ var App = React.createClass({
 
         return (
             <div className="app">
+
                 <Dialog/>
+                <Foot/>
             </div>
         );
     }
