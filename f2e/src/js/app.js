@@ -4,6 +4,7 @@
 import React from 'react';
 import App from '../js/compoents/app/app.js';
 import {RootInstanceProvider} from 'react-hot-loader/Injection';
+import '../css/app.less';
 
 var hotObj = React.render(
     <App></App>,

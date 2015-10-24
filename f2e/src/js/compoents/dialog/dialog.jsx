@@ -2,20 +2,17 @@
 import React from 'react';
 import AppActions from'../../actions/AppActions';
 import AppStore from'../../stores/AppStore';
-import Socket from 'socket.io-client';
-import Dialog from '../dialog/dialog.jsx';
-import Login from '../dialog/login.jsx';
+import Login from './login.jsx';
+import Register from './register.jsx';
+import './dialog.less';
 
-var ReactPropTypes = React.PropTypes;
 
-function getStateFromStores() {
-    return {};
-}
-
-var App = React.createClass({
+var Dialog = React.createClass({
 
     getInitialState: function() {
-        return getStateFromStores();
+        return {
+            isLogin:true
+        };
     },
 
     componentDidMount: function() {
@@ -26,15 +23,23 @@ var App = React.createClass({
         AppStore.removeChangeListener(this._onChange);
     },
 
+    renderItem:function(){
+      if(this.state.isLogin){
+          return <Login/>
+      }else{
+          return <Register/>
+      }
+    },
 
     render: function() {
 
         return (
-            <div className="app">
-                <Dialog/>
+            <div className="dialog">
+                {this.renderItem()}
             </div>
         );
     }
+
 });
 
-export default App;
+export default Dialog;
