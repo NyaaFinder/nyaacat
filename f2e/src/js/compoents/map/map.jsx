@@ -6,7 +6,7 @@ import React from 'react';
 import AppActions from'../../actions/AppActions';
 import AppStore from'../../stores/AppStore';
 import $ from 'jquery';
-import baiduMap from './baiduMap';
+import baiduMap from './baiduHotMap';
 
 import './map.less';
 
