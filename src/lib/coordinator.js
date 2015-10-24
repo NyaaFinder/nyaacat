@@ -134,6 +134,11 @@ function calcFinalCoordinate(intersections) {
     };
 }
 
+/**
+ * mileToCoor
+ * @param {Object} mile the mile coordinate
+ * @return {Object} the coordinate
+ */
 var mileToCoor = exports.mileToCoor = function(mile) {
     var lngAbs = Math.abs(mile.lng);
     var latAbs = Math.abs(mile.lat);
@@ -173,8 +178,6 @@ function calculateViaSeveralCoordinateAndDistance(coordinates, distances) {
             }
         }
     }
-
-    console.log(intersections);
 
     if(!intersections.length) {
         var dlat = coordinates[0].lat - coordinates[1].lat;
