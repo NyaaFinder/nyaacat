@@ -48,11 +48,11 @@ PetCoordinate.calculateCoordinate = function(petId, timestamp, callback) {
 
             coor.save(function(err, coor) {
                 if(err) {
-                    if(err.indexOf("Duplicate") > -1 && !notFirstTime) {
+                    if(err.message.indexOf("Duplicate") > -1 && !notFirstTime) {
                         return self.calculateCoordinate(petId, timestamp, callback, true);
                     }
 
-                    if(err.indexOf("No data changed") > -1) {
+                    if(err.message.indexOf("No data changed") > -1) {
                         return callback(undefined, coor);
                     }
 

@@ -33,6 +33,10 @@ nyaa.use(express.static(__dirname + "/f2e/build/", {
     lastModified: true
 }));
 
+nyaa.use(function (req, res, next) {
+	res.header('Access-Control-Allow-Origin', '*');
+	next();
+})
 // load routers
 require("lib/controller_loader")("");
 

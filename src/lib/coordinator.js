@@ -20,23 +20,23 @@ var EARTH_PERIMETER = 2 * Math.PI * EARTH_RADIUS;
  * @param {Number} r2 the radius 2
  * @return {Number} the result
  *
- *   + 相离：return 1 
- *   + 外切：return 2 
- *   + 相交：return 3 
- *   + 内切：return 4 
+ *   + 相离：return 1
+ *   + 外切：return 2
+ *   + 相交：return 3
+ *   + 内切：return 4
  *   + 内含：return 5
  */
 function circleRelation(coor1, r1, coor2, r2) {
     var d = Math.sqrt((coor1.lat - coor2.lat) *
             (coor1.lat - coor2.lat) +
             (coor1.lng - coor2.lng) *
-            (coor1.lng - coor2.lng)); 
+            (coor1.lng - coor2.lng));
 
-    if(Math.abs(d - r1 - r2) < EP) return 2; 
+    if(Math.abs(d - r1 - r2) < EP) return 2;
     if(Math.abs(d - Math.abs(r1 - r2)) < EP) return 4;
-    if(d > r1 + r2) return 1; 
-    if(d < Math.abs(r1 - r2)) return 5; 
-    if(Math.abs(r1 - r2) < d && d < r1 + r2) return 3; 
+    if(d > r1 + r2) return 1;
+    if(d < Math.abs(r1 - r2)) return 5;
+    if(Math.abs(r1 - r2) < d && d < r1 + r2) return 3;
     return 0;
 }
 
@@ -58,34 +58,34 @@ function calcDistanceViaRSSI(rssi) {
  * @return {Array} the crocessed coordinate
  */
 function calcCircleCrossCircle(coor1, r1, coor2, r2) {
-    var a, b, r; 
-    a = coor2.lat - coor1.lat; 
-    b = coor2.lng - coor1.lng; 
-    r = (a * a + b * b + r1 * r1 - r2 * r2) / 2; 
+    var a, b, r;
+    a = coor2.lat - coor1.lat;
+    b = coor2.lng - coor1.lng;
+    r = (a * a + b * b + r1 * r1 - r2 * r2) / 2;
 
-    var rp1 = {}, rp2 = {};
-   
-    if(a === 0 && b !== 0) { 
-        rp1.lng = rp2.lng = r / b; 
-        rp1.lat = Math.sqrt(r1 * r1 - rp1.lng * rp1.lng); 
-        rp2.lat = -rp1.lat; 
-    } else if(a !== 0 && b === 0) { 
-        rp1.lat = rp2.lat = r / a; 
-        rp1.lng = Math.sqrt(r1 * r1 - rp1.lat * rp2.lat); 
-        rp2.lng = -rp1.lng; 
-    } else if(a !== 0 && b !== 0) { 
-        var delta; 
-        delta = b * b * r * r - (a * a + b * b) * (r * r - r1 * r1 * a * a); 
-        rp1.lng = (b * r + Math.sqrt(delta)) / (a * a + b * b); 
-        rp2.lng =(b * r - Math.sqrt(delta)) / (a * a + b * b); 
-        rp1.lat = (r - b * rp1.lng) / a; 
-        rp2.lat = (r - b * rp2.lng) / a; 
-    } 
-   
-    rp1.lat += coor1.lat; 
-    rp1.lng += coor1.lng; 
-    rp2.lat += coor1.lat; 
-    rp2.lng += coor1.lng; 
+    var rp1 = { lng: 0, lat: 0 }, rp2 = { lng: 0, lat: 0 };
+
+    if(a === 0 && b !== 0) {
+        rp1.lng = rp2.lng = r / b;
+        rp1.lat = Math.sqrt(r1 * r1 - rp1.lng * rp1.lng);
+        rp2.lat = -rp1.lat;
+    } else if(a !== 0 && b === 0) {
+        rp1.lat = rp2.lat = r / a;
+        rp1.lng = Math.sqrt(r1 * r1 - rp1.lat * rp2.lat);
+        rp2.lng = -rp1.lng;
+    } else if(a !== 0 && b !== 0) {
+        var delta;
+        delta = b * b * r * r - (a * a + b * b) * (r * r - r1 * r1 * a * a);
+        rp1.lng = (b * r + Math.sqrt(delta)) / (a * a + b * b);
+        rp2.lng =(b * r - Math.sqrt(delta)) / (a * a + b * b);
+        rp1.lat = (r - b * rp1.lng) / a;
+        rp2.lat = (r - b * rp2.lng) / a;
+    }
+
+    rp1.lat += coor1.lat;
+    rp1.lng += coor1.lng;
+    rp2.lat += coor1.lat;
+    rp2.lng += coor1.lng;
 
     return [ rp1, rp2 ];
 }
@@ -198,7 +198,7 @@ function calculateViaSeveralCoordinateAndDistance(coordinates, distances) {
     }
 
     var result = calcFinalCoordinate(intersections);
-    
+
     // 最后换算回经纬度...
     return mileToCoor(result);
 }

@@ -8,7 +8,7 @@ module.exports = function(router) {
     router.put("/", function(req, resp) {
         var body = req.body;
         console.log(body);
-
+        var pet_id, timestamp;
         //参数校验
         if (!body) return resp.status(401).end('No body!');
         if (typeof body.rssi !== 'number') return resp.status(401).end('rssi type error!');
@@ -22,6 +22,8 @@ module.exports = function(router) {
         	},
         	function(pet, sql, next) {
         		if (!pet || !pet.length) return resp.status(404).end('Not find pet!');
+                pet_id = pet[0].pet_id;
+                timestamp = body.timestamp;
         		petPosition.build({
         			pet_id : pet[0].pet_id,
 		        	rssi : body.rssi,
@@ -29,9 +31,16 @@ module.exports = function(router) {
 		        	lat : body.lat,
 		        	timestamp : body.timestamp
         		}).save(next);
-        	}
+        	},
+            function(petPosition, sql, next) {
+                petCoordinate.calculateCoordinate(pet_id, timestamp, next)
+            }
         ], function(err, data) {
-        	if (err) return resp.status(401).end(err);
+            console.log(data);
+        	if (err) return resp.status(401).send({
+                is_success: false,
+                message : err.message
+            });
             resp.send({
                 is_success: true,
                 position: data
@@ -52,10 +61,14 @@ module.exports = function(router) {
                 if(!pet || !pet.length) return resp.status(404).end('Not find pet!');
                 petCoordinate.where({
                     pet_id : pet[0].pet_id
-                }).limit(50).orderBy('timestamp desc').find(next);
+                }).limit(50).orderBy('timestamp asc').find(next);
             }
         ], function(err, data) {
-            if (err) return resp.status(401).end(err);
+            console.log(data);
+            if (err) return resp.status(401).send({
+                is_success: false,
+                message : err.message
+            });
             resp.send({
                 is_success: true,
                 pet_coordinate: data
