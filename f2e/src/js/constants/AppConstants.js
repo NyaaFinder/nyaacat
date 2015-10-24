@@ -9,5 +9,7 @@ export default keyMirror({
         KEY_TWO:null,
         KEY_OTHERS:null,
         KEY_REGISTER:null,
-        KEY_Login:null
+        KEY_LOGIN:null,
+        FIND_DOG:null,
+        SHOW_DIALOG:null,
 });

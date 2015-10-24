@@ -14,9 +14,10 @@ export default {
     },
     actionLogin: function(userid,password) {
         AppDispathcer.dispatch({
-            type: AppConstants.KEY_Login,
+            type: AppConstants.KEY_LOGIN,
             userid: userid,
             password: password
         });
     },
+
 };
