@@ -33,3 +33,5 @@ config/!default.js
 
 **/.DS_Store
 .idea
+
+f2e/dist

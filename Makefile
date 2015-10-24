@@ -9,20 +9,12 @@ install:
 		bower install
 
 build: install
-	@$(GULP_PATH) build
+	@cd f2e && npm install && npm run build
 
 rebuild: clean-build build
-
-build-dev: install
-	@$(GULP_PATH) build-dev
-
-rebuild-dev: clean-build build-dev
-
-watch: build-dev
-	@$(GULP_PATH) watch
 
 clean-build:
 	@rm -rf f2e/build && echo "Cleaned."
 
 clean: clean-build
-	@rm -rf node_modules && rm -rf bower_components
+	@rm -rf node_modules && rm -rf f2e/node_modules
