@@ -63,12 +63,12 @@ module.exports = function(router) {
     });
 
     router.post('/register', function(req, resp){
-        var pet_name = req.query.pet_name;
-        var pet_type = req.query.pet_type;
-        var password = req.query.password;
-        var mail = req.query.mail;
-        var bluetooth = req.query.bluetooth;
-
+        var pet_name = req.body.pet_name;
+        var pet_type = req.body.pet_type;
+        var password = req.body.password;
+        var mail = req.body.mail;
+        var bluetooth = req.body.bluetooth;
+        
         if(common_util.isStringEmpty(pet_name)||
            common_util.isStringEmpty(pet_type)||
            common_util.isStringEmpty(mail)||
