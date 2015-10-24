@@ -12,11 +12,9 @@ var Login = React.createClass({
     },
 
     componentDidMount: function() {
-        AppStore.addChangeListener(this._onChange);
     },
 
     componentWillUnmount: function() {
-        AppStore.removeChangeListener(this._onChange);
     },
 
     render: function() {

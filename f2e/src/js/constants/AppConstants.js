@@ -8,4 +8,6 @@ export default keyMirror({
         KEY_ONE:null,
         KEY_TWO:null,
         KEY_OTHERS:null,
+        KEY_REGISTER:null,
+        KEY_Login:null
 });
