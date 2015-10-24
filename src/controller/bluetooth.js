@@ -36,7 +36,11 @@ module.exports = function(router) {
                 petCoordinate.calculateCoordinate(pet_id, timestamp, next)
             }
         ], function(err, data) {
-        	if (err) return resp.status(401).send(err);
+            console.log(data);
+        	if (err) return resp.status(401).send({
+                is_success: false,
+                message : err.message
+            });
             resp.send({
                 is_success: true,
                 position: data
@@ -57,11 +61,14 @@ module.exports = function(router) {
                 if(!pet || !pet.length) return resp.status(404).end('Not find pet!');
                 petCoordinate.where({
                     pet_id : pet[0].pet_id
-                }).limit(50).orderBy('timestamp desc').find(next);
+                }).limit(50).orderBy('timestamp asc').find(next);
             }
         ], function(err, data) {
             console.log(data);
-            if (err) return resp.status(401).end(err);
+            if (err) return resp.status(401).send({
+                is_success: false,
+                message : err.message
+            });
             resp.send({
                 is_success: true,
                 pet_coordinate: data
