@@ -23,6 +23,6 @@ module.exports = {
     },
 
     bluetooth: {
-        txPower: 0
+        txPower: -65
     }
 };
