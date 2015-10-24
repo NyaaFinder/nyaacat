@@ -3,16 +3,9 @@ var Pet = util.getModel('Pet');
 var async = require('async');
 var val = require('validator');
 
-var common_util = require('../lib/common_util');
+var common_util = require('lib/common_util');
 
 module.exports = function(router) {
-    router.get("/", function(req, resp) {
-        resp.send("Hello world!");
-    });
-
-    router.get("/hello", function(req, resp) {
-        resp.send("Hello again!");
-    });
 
     router.get('/user', function(req, resp){
         var token = req.query.token;
@@ -52,6 +45,7 @@ module.exports = function(router) {
     });
 
     router.post('/user/register', function(req, resp){
+        console.log('#####');
         var pet_name = req.query.pet_name;
         var pet_type = req.query.pet_type;
         var password = req.query.password;
