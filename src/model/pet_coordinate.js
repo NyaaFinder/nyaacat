@@ -25,8 +25,8 @@ PetCoordinate.calculateCoordinate = function(petId, timestamp, callback) {
         "pet_id": petId,
         //timestamp: timestamp
         timestamp: {
-            ">=": timestamp - 4,
-            "<=": timestamp + 4
+            ">=": timestamp - 2,
+            "<=": timestamp + 2
         }
     }).find(function(err, positions) {
         if(err) return callback(err);
