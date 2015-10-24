@@ -111,7 +111,7 @@ export default function () {
 
     function deleteMark () {
         var mark;
-        if (pointMarkArr.length > 30) {
+        if (pointMarkArr.length > 50) {
             mark = pointMarkArr.shift();
             map.removeOverlay(mark);
         }
@@ -131,7 +131,8 @@ export default function () {
                     if (prePoint) {
                         drawMiddleMark(e, i);
                         deleteMark();
-                        // drawLine(prePoint, e);
+                        drawLine(prePoint, e);
+                        prePoint = e;
                         map.centerAndZoom(e, 25);
                     } else {
                         prePoint = e;

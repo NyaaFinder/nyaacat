@@ -6,7 +6,7 @@ import React from 'react';
 import AppActions from'../../actions/AppActions';
 import AppStore from'../../stores/AppStore';
 import $ from 'jquery';
-import baiduMap from './baiduMap';
+import baiduMap from './baiduHotMap';
 
 import './map.less';
 
@@ -33,7 +33,7 @@ var Map = React.createClass({
             dataType: 'json',
             data: {
             // token: localStorage.getItem('token')
-                token: '3267gdsgjsydkvbnx',
+                token: 'DASOUGOU-212233lalala1445716385',
                 t: new Date()
             }
         })
