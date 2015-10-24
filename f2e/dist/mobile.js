@@ -1,1 +1,0 @@
-webpackJsonp([1],[function(e,t,n){"use strict";function r(e){return e&&e.__esModule?e:{"default":e}}var o=n(1),i=r(o),a=n(2),s=r(a);i["default"].render(i["default"].createElement("div",{className:"time"},i["default"].createElement(s["default"],{name:"入口2-移动端"})),document.getElementById("app"))}]);
