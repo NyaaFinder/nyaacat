@@ -4,10 +4,43 @@ export default function () {
 	var map = new BMap.Map("map");          // 创建地图实例
 
 	var convertor = new BMap.Convertor();
+    var heatmapOverlay = new BMapLib.HeatmapOverlay({"radius": 30});
 
     var point = new BMap.Point(116.418261, 39.921984);
     map.centerAndZoom(point, 15);             // 初始化地图，设置中心点坐标和地图级别
     map.enableScrollWheelZoom(); // 允许滚轮缩放
+
+    var tmp;
+
+    function formatDate(timestamp) {
+        var dateObj = new Date(timestamp);
+        return dateObj.getFullYear() + "-" + (dateObj.getMonth() + 1) + "-" + dateObj.getDate() + " " + dateObj.getHours() + ":" + dateObj.getMinutes() + ":" + dateObj.getSeconds();
+    }
+
+    function drawStartMark(pt) {
+    	if (tmp) {
+    		map.removeOverlay(tmp);
+    	}
+
+        var myIcon = new BMap.Icon("http://img.souche.com/20151024/png/f7912437d0debd5135a94afb0f607a4b.png@24w_24h.png", new BMap.Size(24, 44), { //小车图片
+            imageOffset: new BMap.Size(0, 0) //图片的偏移量。为了是图片底部中心对准坐标点。
+        });
+
+        var marker = new BMap.Marker(pt, {icon: myIcon});
+        var opts = {
+            width : 100,     // 信息窗口宽度
+            height: 40,     // 信息窗口高度
+            title : "此位置出现时间",  // 信息窗口标题
+        }
+
+        var dateStr = formatDate(pt.timestamp * 1000);
+
+        marker.addEventListener('click', function(e) {
+            this.openInfoWindow(new BMap.InfoWindow(dateStr, opts));
+        });
+        map.addOverlay(marker);
+ 		tmp = marker;
+    }
 
     function ajaxSuccess(data) {
     	var t_arr = [];
@@ -17,16 +50,20 @@ export default function () {
             arr.push(ee);
             convertor.translate(arr, 1, 5, function (ed) {
                 var e = ed.points[0];
+                e.count = 25;
+                e.timestamp = data[i].timestamp;
                 t_arr.push(e);
+		        if (i == data.length-1) {
+		        	map.centerAndZoom(t_arr[t_arr.length-1], 25);
+
+					map.addOverlay(heatmapOverlay);
+					heatmapOverlay.setDataSet({data:t_arr,max:100});
+			        heatmapOverlay.show();
+
+			        drawStartMark(t_arr[t_arr.length-1]);
+		        }
             });
         });
-
-        map.centerAndZoom(t_arr[0], 15);
-
-        var heatmapOverlay = new BMapLib.HeatmapOverlay({"radius":20});
-		map.addOverlay(heatmapOverlay);
-		heatmapOverlay.setDataSet({data:t_arr,max:100});
-        heatmapOverlay.show();
     }
 
     return {
