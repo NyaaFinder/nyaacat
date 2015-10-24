@@ -17,5 +17,11 @@ export default {
             type: AppConstants.KEY_TWO,
             text: txt
         });
+    },
+    actionFindDog:function(){
+        AppDispathcer.dispatch({
+            type: AppConstants.FIND_DOG,
+            text: null
+        });
     }
 };

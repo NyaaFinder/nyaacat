@@ -12,11 +12,11 @@ export default {
             user: user
         });
     },
-    actionLogin: function(userid,password) {
+    actionLogin: function(user) {
         AppDispathcer.dispatch({
-            type: AppConstants.KEY_Login,
-            userid: userid,
-            password: password
+            type: AppConstants.KEY_LOGIN,
+            user:user
         });
     },
+
 };

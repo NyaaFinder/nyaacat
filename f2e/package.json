@@ -17,6 +17,7 @@
     "expose-loader": "^0.7.0",
     "file-loader": "^0.8.4",
     "flux": "^2.0.1",
+    "jquery": "^2.1.4",
     "keymirror": "~0.1.0",
     "less": "^2.5.3",
     "less-loader": "^2.2.1",

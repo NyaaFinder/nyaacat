@@ -6,6 +6,8 @@ import Socket from 'socket.io-client';
 import Dialog from '../dialog/dialog.jsx';
 import Login from '../dialog/login.jsx';
 import Foot from '../foot/foot.jsx';
+import Head from '../head/head.jsx';
+import Map from '../map/map.jsx';
 
 var ReactPropTypes = React.PropTypes;
 
@@ -30,9 +32,10 @@ var App = React.createClass({
 
         return (
             <div className="app">
-
-                <Dialog/>
+                <Head/>
+                <Map/>
                 <Foot/>
+                <Dialog/>
             </div>
         );
     }

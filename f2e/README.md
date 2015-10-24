@@ -71,7 +71,14 @@ eg：热部署组件的简单解释
 全部测试都采用jest
 	#issue 尚未加入 10.23
  
+#### 整体交互的过程
+1、UI组件注册store，写入回调函数
 
+2、UI页面交互(类似click)，调用Actions,Dispatcher分发
+
+3、store绑定相应的Disptacher(所有请求，数据逻辑处理都在这里)，触发用emitChange触发
+！！！
+注意CHANGE_TYPE="change" 不同store必须不同
 
 
 
