@@ -5,40 +5,29 @@
 import React from 'react';
 import AppActions from'../../actions/AppActions';
 import AppStore from'../../stores/AppStore';
-import './foot.less';
+import './map.less';
 
 
-var Foot = React.createClass({
+var Map = React.createClass({
 
     getInitialState: function() {
         return {};
     },
 
     componentDidMount: function() {
-        AppStore.addChangeListener(this._onChange);
     },
 
     componentWillUnmount: function() {
-        AppStore.removeChangeListener(this._onChange);
-    },
-
-    _onChange:function(){
-
-    },
-
-    findDog: function () {
-        console.log("ffffff---");
-        AppActions.actionFindDog();
     },
 
     render: function() {
 
         return (
-            <div className="foot">
-                <a href="javascript:void(0)" className="findDog" onClick={this.findDog}>找爱宠</a>
+            <div className="map">
+
             </div>
         );
     }
 });
 
-export default Foot;
+export default Map;

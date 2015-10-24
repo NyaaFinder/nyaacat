@@ -5,7 +5,7 @@
 import React from 'react';
 import AppActions from'../../actions/AppActions';
 import AppStore from'../../stores/AppStore';
-import './foot.less';
+import './head.less';
 
 
 var Foot = React.createClass({
@@ -15,27 +15,20 @@ var Foot = React.createClass({
     },
 
     componentDidMount: function() {
-        AppStore.addChangeListener(this._onChange);
     },
 
     componentWillUnmount: function() {
-        AppStore.removeChangeListener(this._onChange);
-    },
-
-    _onChange:function(){
-
-    },
-
-    findDog: function () {
-        console.log("ffffff---");
-        AppActions.actionFindDog();
     },
 
     render: function() {
 
         return (
-            <div className="foot">
-                <a href="javascript:void(0)" className="findDog" onClick={this.findDog}>找爱宠</a>
+            <div className="head">
+                <div style={{backgroundImage: 'url(http://git.souche.com/uploads/user/avatar/77/Slice_1.png)'}} className="avator"></div>
+                <div className="userInfo">
+                    <div className="name">咪咪</div>
+                    <div className="mail">myfavpet@foxmail.com</div>
+                </div>
             </div>
         );
     }

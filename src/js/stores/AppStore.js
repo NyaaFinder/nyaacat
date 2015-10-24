@@ -3,6 +3,7 @@
  */
 import AppDispatcher from '../dispatcher/AppDispatcher';
 import AppConstants from '../constants/AppConstants';
+import UserStore from'./UserStore';
 import  {EventEmitter} from 'events';
 import  assign from 'object-assign';
 
@@ -12,8 +13,16 @@ var __innerTxt = "";
 
 var AppStore = assign({}, EventEmitter.prototype, {
 
+    // demo 的方法
     getLiveWord:function(){
         return __innerTxt;
+    },
+
+
+    // 找狗按下
+    findDog:function(){
+
+        //地图相关服务
     },
 
     emitChange: function() {
@@ -41,6 +50,9 @@ AppDispatcher.register(function(action) {
         case AppConstants.KEY_TWO:
             __innerTxt = " 事件 2 ";
             AppStore.emitChange();
+            break;
+        case AppConstants.FIND_DOG:
+
             break;
         default:
         // no op
