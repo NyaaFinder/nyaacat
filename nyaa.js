@@ -6,6 +6,9 @@
  */
 "use strict";
 
+global.__DOC_PATH = __dirname;
+require("app-module-path").addPath(__dirname + "/src");
+
 var config = require("config");
 var express = require("express");
 var 色 = require("colors");
