@@ -2,6 +2,7 @@
 import React from 'react';
 import AppActions from'../../actions/AppActions';
 import AppStore from'../../stores/AppStore';
+import Socket from 'socket.io-client';
 import './demo.less';
 
 var ReactPropTypes = React.PropTypes;
@@ -24,6 +25,9 @@ var Demo = React.createClass({
     },
 
     componentDidMount: function() {
+        Socket.on('connection',function(){
+
+        });
         AppStore.addChangeListener(this._onChange);
     },
 
@@ -40,7 +44,7 @@ var Demo = React.createClass({
         return (
             <div className="demo">
                 <span>名字：{this.props.name}</span>
-                <p>点击的事件： {this.state.liveWord}</p>
+                <p>点击的事件1111111asdasd： {this.state.liveWord}</p>
                 <div onClick={this._onOneClick}>点击 事件 1</div>
                 <div onClick={this._onTwoClick}>点击 事件 2</div>
             </div>

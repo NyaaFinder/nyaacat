@@ -2,13 +2,11 @@
  * Created by john on 15/10/19.
  */
 import React from 'react';
-import Demo from './compoents/demo/demo.jsx';
+import App from '../js/compoents/app/app.js';
 import {RootInstanceProvider} from 'react-hot-loader/Injection';
 
 var hotObj = React.render(
-    <div className="time">
-        <Demo name="入口1-pc端"/>
-    </div>,
+    <App></App>,
     document.getElementById('app')
 );
 
