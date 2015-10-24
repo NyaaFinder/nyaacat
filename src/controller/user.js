@@ -32,8 +32,6 @@ module.exports = function(router) {
                     if(err){
                         return next(err);     
                     }
-                    console.log('token:', token);
-                    console.log('@@@pet:', pet.token);
                     if(token !== pet.token) {
                         return resp.status(400).json({
                             is_success: false,
@@ -76,7 +74,7 @@ module.exports = function(router) {
            common_util.isStringEmpty(mail)||
            common_util.isStringEmpty(bluetooth)||
            common_util.isStringEmpty(password)){
-            resp.status(400).json({ 
+            return resp.status(400).json({ 
                 is_success: false,
                 message: 'params invalid.' 
             });
@@ -84,6 +82,20 @@ module.exports = function(router) {
 
         async.waterfall([
             function(next){
+                Pet.findByName(pet_name, function(err, pet){
+                    if(err){
+                        return next(err);
+                    }
+                    if(pet){
+                        return resp.status(400).json({ 
+                            is_success: false,
+                            message: 'User has alreay exist.' 
+                        });
+                    }
+                    return next(null, pet);
+                });
+            },
+            function(pet, next){
                 var data = {
                     pet_name: pet_name,
                     password: password,
@@ -134,7 +146,6 @@ module.exports = function(router) {
         async.waterfall([
             function(next){
                 Pet.findByNameAndPassword(pet_name, password, function(err, pet){
-                    console.log('*****');
                     if(err){
                         return next(err);
                     }
@@ -152,7 +163,6 @@ module.exports = function(router) {
                     if(err){
                         return next(err);
                     }
-                    console.log('*****pet', pet);
                     return next(null, pet);
                 });
             }

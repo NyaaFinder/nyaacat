@@ -29,6 +29,15 @@ Pet.findById = function(pet_id, callback){
     });
 };
 
+Pet.findByName = function(name, callback){
+    Pet.where({pet_name: name}).findOne(function(err, pet){
+        if(err){
+            return callback(err);
+        }
+        return callback(null, pet);
+    });
+}
+
 Pet.findByNameAndPassword = function(name, password, callback){
     Pet.where({pet_name: name, password: password}).findOne(function(err, pet){
         if(err){
