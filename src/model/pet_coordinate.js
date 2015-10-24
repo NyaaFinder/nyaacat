@@ -1,6 +1,6 @@
 var toshihiko = require("lib/toshihiko");
 var util = require("util");
-var coordinator = require("lib/coodinator");
+var coordinator = require("lib/coordinator");
 
 var PetCoordinate = toshihiko.define("pets_coordinate", [
     { name: "id", column: "id", type: toshihiko.TYPE.Integer, primaryKey: true },
