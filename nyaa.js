@@ -17,6 +17,9 @@ var nyaa = express();
 
 var PORT = config.get("server.port");
 
+// some nes...ry modules
+require("lib/toshihiko");
+
 nyaa.use(express.static(__dirname + "/f2e/build/", {
     dotfiles: "deny",
     lastModified: true
