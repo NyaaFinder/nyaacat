@@ -51,7 +51,10 @@ AppDispatcher.register(function(action) {
             __innerTxt = " 事件 2 ";
             AppStore.emitChange();
             break;
+
         case AppConstants.FIND_DOG:
+
+
 
             if(window.localStorage && localStorage.getItem("token")){
                 console.log("token:",localStorage.getItem("token"));

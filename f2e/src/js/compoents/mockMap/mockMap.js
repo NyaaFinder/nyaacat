@@ -24,7 +24,7 @@ var mockMap = React.createClass({
 
         return (
             <div className="mock">
-                <img id="mock" src="../mock.png" />
+                <img id="mock" src="./mock.png" />
             </div>
         );
     }
