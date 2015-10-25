@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0375d072-103f-4de1-ab87-9205b18974ee" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/f2e/src/js/compoents/dialog/dialog.less" afterPath="$PROJECT_DIR$/f2e/src/js/compoents/dialog/dialog.less" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/f2e/src/js/compoents/dialog/register.js" afterPath="$PROJECT_DIR$/f2e/src/js/compoents/dialog/register.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="nyaacat.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -38,8 +36,8 @@
       <file leaf-file-name="register.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/f2e/src/js/compoents/dialog/register.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.697074">
-              <caret line="56" column="36" selection-start-line="56" selection-start-column="26" selection-end-line="56" selection-end-column="36" />
+            <state vertical-scroll-proportion="0.4130809">
+              <caret line="108" column="160" selection-start-line="108" selection-start-column="160" selection-end-line="108" selection-end-column="160" />
               <folding />
             </state>
           </provider>
@@ -565,10 +563,10 @@
         <state vertical-scroll-proportion="5.6764197">
           <caret line="7585" column="0" selection-start-line="7585" selection-start-column="0" selection-end-line="7585" selection-end-column="0" />
           <folding>
-            <marker date="1445748101000" expanded="true" signature="-1:-1" placeholder="[...]" />
-            <marker date="1445748101000" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1445748101000" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1445748101000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1445749747000" expanded="true" signature="-1:-1" placeholder="[...]" />
+            <marker date="1445749747000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1445749747000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1445749747000" expanded="true" signature="-1:-1" placeholder="{...}" />
           </folding>
         </state>
       </provider>
@@ -820,8 +818,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/f2e/src/js/compoents/dialog/register.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.697074">
-          <caret line="56" column="36" selection-start-line="56" selection-start-column="26" selection-end-line="56" selection-end-column="36" />
+        <state vertical-scroll-proportion="0.4130809">
+          <caret line="108" column="160" selection-start-line="108" selection-start-column="160" selection-end-line="108" selection-end-column="160" />
           <folding />
         </state>
       </provider>

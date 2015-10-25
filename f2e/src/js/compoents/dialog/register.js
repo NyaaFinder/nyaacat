@@ -106,7 +106,7 @@ var Register = React.createClass({
                 </div>
                 <div className="form__wrapper__item">
                     <label htmlFor="mail" name="mail">蓝牙标识</label>
-                    <input value={this.state.pet} className="bluetooth" id="bluetooth" name="bluetooth" onClick={this.getClientList} placeholder="点击选择" disabled/>
+                    <input value={this.state.pet} className="bluetooth" id="bluetooth" name="bluetooth" onClick={this.getClientList} placeholder="点击选择" readOnly/>
                 </div>
                 <button className="form__wrapper__button submit" onClick={this.register}>注册</button>
                 <div className="warning">{this.state.warn}</div>
