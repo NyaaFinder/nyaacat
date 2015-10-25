@@ -108,7 +108,7 @@ var Register = React.createClass({
                     <label htmlFor="mail" name="mail">蓝牙标识</label>
                     <input value={this.state.pet} className="bluetooth" id="bluetooth" name="bluetooth" onClick={this.getClientList} placeholder="点击选择" disabled/>
                 </div>
-                <a href="javscript:void(0)" className="form__wrapper__button submit" onClick={this.register}>注册</a>
+                <button className="form__wrapper__button submit" onClick={this.register}>注册</button>
                 <div className="warning">{this.state.warn}</div>
             </div>
         );
@@ -125,7 +125,6 @@ var Register = React.createClass({
             pet_type:document.querySelector('.petType').value
         };
         UserActions.actionRegister(user);
-        return false;
     }
 
 });

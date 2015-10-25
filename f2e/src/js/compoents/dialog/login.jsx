@@ -66,7 +66,7 @@ var Login = React.createClass({
                     <label htmlFor="password" for="password" name="password">密码</label>
                     <input type="text" className="password" />
                 </div>
-                <a href="javscript:void(0)" className="form__wrapper__button submit" onClick={this.login}>登陆</a>
+                <button className="form__wrapper__button submit" onClick={this.login}>登陆</button>
                 <div className="warning">{this.state.warn}</div>
             </div>
         );
@@ -82,8 +82,6 @@ var Login = React.createClass({
         };
         console.log("<=====注册对象:",userId,password,"=====>");
         UserActions.actionLogin(user);
-        return false;
-
     }
 
 });

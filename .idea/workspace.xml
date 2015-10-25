@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0375d072-103f-4de1-ab87-9205b18974ee" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/f2e/src/js/compoents/dialog/dialog.jsx" afterPath="$PROJECT_DIR$/f2e/src/js/compoents/dialog/dialog.jsx" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/f2e/src/js/compoents/dialog/login.jsx" afterPath="$PROJECT_DIR$/f2e/src/js/compoents/dialog/login.jsx" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/f2e/src/js/compoents/dialog/register.js" afterPath="$PROJECT_DIR$/f2e/src/js/compoents/dialog/register.js" />
     </list>
@@ -24,11 +25,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="login.jsx" pinned="false" current-in-tab="true">
+      <file leaf-file-name="login.jsx" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/f2e/src/js/compoents/dialog/login.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.48364887">
-              <caret line="76" column="28" selection-start-line="76" selection-start-column="28" selection-end-line="76" selection-end-column="28" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="83" column="38" selection-start-line="83" selection-start-column="38" selection-end-line="83" selection-end-column="38" />
               <folding />
             </state>
           </provider>
@@ -38,7 +39,7 @@
         <entry file="file://$PROJECT_DIR$/f2e/src/js/compoents/dialog/register.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="127" column="8" selection-start-line="127" selection-start-column="8" selection-end-line="127" selection-end-column="21" />
+              <caret line="110" column="23" selection-start-line="110" selection-start-column="17" selection-end-line="110" selection-end-column="23" />
               <folding />
             </state>
           </provider>
@@ -54,11 +55,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dialog.jsx" pinned="false" current-in-tab="false">
+      <file leaf-file-name="dialog.jsx" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/f2e/src/js/compoents/dialog/dialog.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="8" column="14" selection-start-line="8" selection-start-column="14" selection-end-line="8" selection-end-column="14" />
+            <state vertical-scroll-proportion="0.5869191">
+              <caret line="84" column="14" selection-start-line="84" selection-start-column="14" selection-end-line="84" selection-end-column="14" />
               <folding />
             </state>
           </provider>
@@ -67,8 +68,8 @@
       <file leaf-file-name="dialog.less" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/f2e/src/js/compoents/dialog/dialog.less">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.3846154">
-              <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
+            <state vertical-scroll-proportion="-3.0769231">
+              <caret line="16" column="14" selection-start-line="16" selection-start-column="14" selection-end-line="16" selection-end-column="14" />
               <folding />
             </state>
           </provider>
@@ -131,10 +132,10 @@
         <option value="$PROJECT_DIR$/f2e/src/js/compoents/map/map.less" />
         <option value="$PROJECT_DIR$/f2e/src/js/stores/AppStore.js" />
         <option value="$PROJECT_DIR$/f2e/src/js/compoents/mockMap/mockMap.js" />
-        <option value="$PROJECT_DIR$/f2e/src/js/compoents/dialog/dialog.jsx" />
         <option value="$PROJECT_DIR$/f2e/src/js/compoents/dialog/dialog.less" />
         <option value="$PROJECT_DIR$/f2e/src/js/compoents/dialog/register.js" />
         <option value="$PROJECT_DIR$/f2e/src/js/compoents/dialog/login.jsx" />
+        <option value="$PROJECT_DIR$/f2e/src/js/compoents/dialog/dialog.jsx" />
       </list>
     </option>
   </component>
@@ -793,18 +794,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/f2e/src/js/compoents/dialog/dialog.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="8" column="14" selection-start-line="8" selection-start-column="14" selection-end-line="8" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/f2e/src/js/compoents/dialog/dialog.less">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.3846154">
-          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
+        <state vertical-scroll-proportion="-3.0769231">
+          <caret line="16" column="14" selection-start-line="16" selection-start-column="14" selection-end-line="16" selection-end-column="14" />
           <folding />
         </state>
       </provider>
@@ -812,15 +805,23 @@
     <entry file="file://$PROJECT_DIR$/f2e/src/js/compoents/dialog/register.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="127" column="8" selection-start-line="127" selection-start-column="8" selection-end-line="127" selection-end-column="21" />
+          <caret line="110" column="23" selection-start-line="110" selection-start-column="17" selection-end-line="110" selection-end-column="23" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/f2e/src/js/compoents/dialog/login.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.48364887">
-          <caret line="76" column="28" selection-start-line="76" selection-start-column="28" selection-end-line="76" selection-end-column="28" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="83" column="38" selection-start-line="83" selection-start-column="38" selection-end-line="83" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/f2e/src/js/compoents/dialog/dialog.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5869191">
+          <caret line="84" column="14" selection-start-line="84" selection-start-column="14" selection-end-line="84" selection-end-column="14" />
           <folding />
         </state>
       </provider>

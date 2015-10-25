@@ -79,7 +79,7 @@ var Dialog = React.createClass({
                                 注册
                             </a>
                         </div>
-                        <a href="javscript:void(0)" className="closeBtn" onClick={this.closeDialog}></a>
+                        <button className="closeBtn" onClick={this.closeDialog}></button>
                     </div>
                 </div>
             );
