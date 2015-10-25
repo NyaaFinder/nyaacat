@@ -13,8 +13,9 @@ require("sugar");
 
 var config = require("config");
 var express = require("express");
+var morgan = require("morgan");
 var 色 = require("colors");
-var bodyParser = require('body-parser');
+var bodyParser = require("body-parser");
 
 var nyaa = global.nyaa = express();
 
@@ -33,10 +34,14 @@ nyaa.use(express.static(__dirname + "/f2e/build/", {
     lastModified: true
 }));
 
+// 跨域
 nyaa.use(function (req, res, next) {
-	res.header('Access-Control-Allow-Origin', '*');
+	res.header("Access-Control-Allow-Origin", "*");
 	next();
-})
+});
+
+nyaa.use(morgan("combined"));
+
 // load routers
 require("lib/controller_loader")("");
 
