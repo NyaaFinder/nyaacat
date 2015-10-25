@@ -7,7 +7,7 @@ import Dialog from '../dialog/dialog.jsx';
 import Login from '../dialog/login.jsx';
 import Foot from '../foot/foot.jsx';
 import Head from '../head/head.jsx';
-import Map from '../map/map.jsx';
+import Mock from '../mockMap/mockMap.js';
 
 var ReactPropTypes = React.PropTypes;
 
@@ -33,7 +33,7 @@ var App = React.createClass({
         return (
             <div className="app">
                 <Head/>
-                <Map/>
+                <Mock/>
                 <Foot/>
                 <Dialog/>
             </div>

@@ -13,6 +13,8 @@ var config = {
     entry: {
         app:path.resolve(__dirname, "./src/js/app.js"),
         mobile:path.resolve(__dirname, "./src/js/mobile.js"),
+        test:[path.resolve(__dirname, "./src/js/test.js")],
+        mock:[path.resolve(__dirname, "./src/js/mock.js")],
         vendors: ['react']
     },
     resolve: {
