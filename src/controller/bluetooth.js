@@ -7,7 +7,6 @@ var async = require('async');
 module.exports = function(router) {
     router.put("/", function(req, resp) {
         var body = req.body;
-        console.log(body);
         var pet_id, timestamp;
         //参数校验
 
@@ -56,7 +55,9 @@ module.exports = function(router) {
 
     router.get("/", function(req, resp) {
         var body = req.query;
+        var limit = 50;
         if(!req.query || !req.query.token) return resp.status(401).end('Have no token!');
+        if(req.query && req.query.limit) limit = req.query.limit;
 
         async.waterfall([
             function(next) {
@@ -66,7 +67,7 @@ module.exports = function(router) {
                 if(!pet || !pet.length) return resp.status(404).end('Not find pet!');
                 petCoordinate.where({
                     pet_id : pet[0].pet_id
-                }).limit([0, 50]).orderBy('timestamp DESC').find(next, true);
+                }).limit([0, limit]).orderBy('timestamp DESC').find(next, true);
             }
         ], function(err, data) {
             console.log(data);
