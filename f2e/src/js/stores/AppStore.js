@@ -6,7 +6,7 @@ import AppConstants from '../constants/AppConstants';
 import UserStore from'./UserStore';
 import  {EventEmitter} from 'events';
 import  assign from 'object-assign';
-import Jockey from '../old/jockey.js';
+// import Jockey from '../old/jockey.js';
 var CHANGE_EVENT = 'change';
 
 var __innerTxt = "";
@@ -56,14 +56,14 @@ AppDispatcher.register(function(action) {
                 // 找狗开始
                 AppStore.findDog(localStorage.getItem('token'));
             }else{
-                Jockey.send("getToken", {},function(token){
-                    if(token){
-                        AppStore.findDog(localStorage.getItem('token'));
-                    }else{
-                        // 启动登陆窗
-                        UserStore.showUserDialog();
-                    }
-                }.bind(this));
+                // Jockey.send("getToken", {},function(token){
+                //     if(token){
+                //         AppStore.findDog(localStorage.getItem('token'));
+                //     }else{
+                //         // 启动登陆窗
+                //         UserStore.showUserDialog();
+                //     }
+                // }.bind(this));
             }
             break;
         default:

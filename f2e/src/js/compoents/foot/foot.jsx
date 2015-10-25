@@ -34,7 +34,7 @@ var Foot = React.createClass({
 
         return (
             <div className="foot">
-                <a href="javascript:void(0)" className="findDog" onClick={this.findDog}>找爱宠</a>
+                <div className="findDog" onClick={this.findDog}>找爱宠</div>
             </div>
         );
     }

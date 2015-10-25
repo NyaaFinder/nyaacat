@@ -7,7 +7,7 @@ import NetConstants from '../constants/NetConstants';
 import  {EventEmitter} from 'events';
 import  assign from 'object-assign';
 import $ from 'jquery';
-import Jockey from '../old/jockey.js';
+// import Jockey from '../old/jockey.js';
 
 var CHANGE_EVENT = 'userChange';
 
@@ -30,7 +30,7 @@ var UserStore = assign({}, EventEmitter.prototype, {
                 if(rsp.is_success){
                     __userInfo = {code:0,msg:'注册成功'};
                     localStorage.setItem('token',rsp.token);
-                    Jockey.send("setToken", {token:rsp.token},function(){});
+                    // Jockey.send("setToken", {token:rsp.token},function(){});
                     UserStore.closeUserDialog();
                 }else{
                     __userInfo = {code:-1,msg:rsp.message};
@@ -59,7 +59,7 @@ var UserStore = assign({}, EventEmitter.prototype, {
                 if(rsp.is_success){
                     __userInfo = {code:0,msg:'登陆成功'};
                     localStorage.setItem('token',rsp.token);
-                    Jockey.send("setToken", {token:rsp.token},function(){});
+                    // Jockey.send("setToken", {token:rsp.token},function(){});
                     UserStore.closeUserDialog();
                 }else{
                     __userInfo = {code:-1,msg:rsp.message};
