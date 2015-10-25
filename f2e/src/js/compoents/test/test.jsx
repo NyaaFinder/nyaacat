@@ -5,39 +5,26 @@
 import React from 'react';
 import AppActions from'../../actions/AppActions';
 import AppStore from'../../stores/AppStore';
-import './foot.less';
+import Foot from '../../compoents/foot/foot.jsx';
 
-
-var Foot = React.createClass({
+var Test = React.createClass({
 
     getInitialState: function() {
         return {};
     },
 
     componentDidMount: function() {
-        AppStore.addChangeListener(this._onChange);
     },
 
     componentWillUnmount: function() {
-        AppStore.removeChangeListener(this._onChange);
-    },
-
-    _onChange:function(){
-
-    },
-
-    findDog: function () {
-        AppActions.actionFindDog();
     },
 
     render: function() {
 
         return (
-            <div className="foot">
-                <div className="findDog" onClick={this.findDog}>找爱宠</div>
-            </div>
+            <Foot/>
         );
     }
 });
 
-export default Foot;
+export default Test;
