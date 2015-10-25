@@ -3,6 +3,7 @@ import React from 'react';
 import UserActions from'../../actions/UserActions';
 import AppStore from'../../stores/AppStore';
 import UserStore from'../../stores/UserStore';
+import $ from 'jquery';
 //import './dialog.less';
 
 
@@ -16,7 +17,12 @@ var Login = React.createClass({
 
     componentDidMount: function() {
         UserStore.addChangeListener(this._onChange);
-    },
+        $(document).delegate(".login .submit",'click',function(){
+            this.login();
+        }.bind(this));
+
+    }
+    ,
 
     componentWillUnmount: function() {
         UserStore.removeChangeListener(this._onChange);
@@ -64,7 +70,7 @@ var Login = React.createClass({
                     <label htmlFor="password" for="password" name="password">密码</label>
                     <input type="text" className="password" />
                 </div>
-                <div className="form__wrapper__button submit" onClick={this.login}>登陆</div>
+                <div className="form__wrapper__button submit" >登陆</div>
                 <div className="warning">{this.state.warn}</div>
             </div>
         );
