@@ -7,9 +7,9 @@ var node_modules_dir = path.resolve(__dirname, 'node_modules');
 
 var config = {
     entry: {
-        app:['webpack/hot/dev-server',path.resolve(__dirname, "./src/js/app.js")],
-        mobile:['webpack/hot/dev-server',path.resolve(__dirname, "./src/js/mobile.js")],
-        test:['webpack/hot/dev-server',path.resolve(__dirname, "./src/js/test.js")],
+        app:[path.resolve(__dirname, "./src/js/app.js")],
+        mobile:[path.resolve(__dirname, "./src/js/mobile.js")],
+        test:[path.resolve(__dirname, "./src/js/test.js")],
         vendors: ['react']
     },
     output: {

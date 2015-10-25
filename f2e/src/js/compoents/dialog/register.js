@@ -13,7 +13,8 @@ var Register = React.createClass({
         return {
             registerInfo:null,
             pet:'pet',//初始化，要改回null
-            preventClick:false
+            preventClick:false,
+            warn:this.getStateFromStore()
         };
     },
 
@@ -26,7 +27,6 @@ var Register = React.createClass({
         //         petId:data.id
         //     });
         // })
-
         UserStore.addChangeListener(this._onChange);
     },
 
@@ -35,23 +35,17 @@ var Register = React.createClass({
     },
 
     _onChange:function(){
-        this.setState(this.getStateFromStore());
-    },
-
-    getStateFromStore:function(){
-        return {
-            registerInfo:UserStore.getStatus()
-        };
-    },
-
-    renderPetlist:function(){
-        if(this.state.perList){
-            return (
-              <div></div>
-            );
-        }else{
-            return (<div></div>);
+        if(UserStore.getDialogStatus()){
+            this.setState({
+                warn:this.getStateFromStore()
+            });
+            if(!this.getStateFromStore()) {
+                setTimeout(function () {
+                    UserStore.closeUserDialog();
+                }, 500);
+            }
         }
+
     },
 
     getClientList:function(){
@@ -61,6 +55,12 @@ var Register = React.createClass({
                 preventClick:true
             });
             // Jockey.send("selectPets", {},function(){});
+
+             this.setState({
+                 pet:"peter111",
+                 preventClick:false,
+                 petId:123456
+             });
         }
 
 
@@ -68,18 +68,15 @@ var Register = React.createClass({
 
     getStateFromStore:function(){
         var registerInfo = UserStore.getStatus();
-        if(registerInfo.code==0){
-            return {
-                registerInfo:registerInfo
-            };
-        }else{
-            return {
-                registerInfo:registerInfo,
-                warn:registerInfo.msg
-            };
+        if(registerInfo){
+            if(registerInfo.code==0){
+                return registerInfo.msg;
+            }else{
+                return registerInfo.msg
+            }
+        }else {
+            return "";
         }
-
-
     },
 
     render: function() {
@@ -112,7 +109,7 @@ var Register = React.createClass({
                     <input value={this.state.pet} className="bluetooth" id="bluetooth" name="bluetooth" onClick={this.getClientList} placeholder="点击选择" disabled/>
                 </div>
                 <div className="form__wrapper__button submit" onClick={this.register}>注册</div>
-                userInfo
+                <div className="warning">{this.state.warn}</div>
             </div>
         );
     },
@@ -126,7 +123,6 @@ var Register = React.createClass({
             bluetooth:document.querySelector('.bluetooth').value,
             pet_type:document.querySelector('.petType').value
         };
-        console.log("<=====注册对象:",user,"=====>");
         UserActions.actionRegister(user);
     }
 

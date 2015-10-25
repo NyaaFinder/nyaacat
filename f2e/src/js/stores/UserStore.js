@@ -31,15 +31,15 @@ var UserStore = assign({}, EventEmitter.prototype, {
                     __userInfo = {code:0,msg:'注册成功'};
                     localStorage.setItem('token',rsp.token);
                     // Jockey.send("setToken", {token:rsp.token},function(){});
-                    UserStore.closeUserDialog();
                 }else{
+                    console.log("注册失败：",rsp.message);
                     __userInfo = {code:-1,msg:rsp.message};
                 }
                 UserStore.emitChange();
             },
             error: function (xhr, type) {
                 console.log("<-----注册失败------>",xhr,type);
-                __userInfo = {code:-1,msg:'请求失败，请检查网络连接'};
+                __userInfo = {code:-1,msg:"用户名重复"};
                 UserStore.emitChange();
             }
         });
@@ -60,7 +60,6 @@ var UserStore = assign({}, EventEmitter.prototype, {
                     __userInfo = {code:0,msg:'登陆成功'};
                     localStorage.setItem('token',rsp.token);
                     // Jockey.send("setToken", {token:rsp.token},function(){});
-                    UserStore.closeUserDialog();
                 }else{
                     __userInfo = {code:-1,msg:rsp.message};
                 }
@@ -84,6 +83,7 @@ var UserStore = assign({}, EventEmitter.prototype, {
     },
 
     getDialogStatus:function(){
+        console.log("初始化弹出：",__showDialog);
         return __showDialog;
     },
 

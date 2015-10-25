@@ -52,7 +52,10 @@ AppDispatcher.register(function(action) {
             AppStore.emitChange();
             break;
         case AppConstants.FIND_DOG:
+
             if(window.localStorage && localStorage.getItem("token")){
+                console.log("token:",localStorage.getItem("token"));
+                console.log("开始找狗！！");
                 // 找狗开始
                 AppStore.findDog(localStorage.getItem('token'));
             }else{
@@ -61,7 +64,8 @@ AppDispatcher.register(function(action) {
                 //         AppStore.findDog(localStorage.getItem('token'));
                 //     }else{
                 //         // 启动登陆窗
-                //         UserStore.showUserDialog();
+                console.log("启动登陆床");
+                UserStore.showUserDialog();
                 //     }
                 // }.bind(this));
             }

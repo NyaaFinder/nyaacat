@@ -5,7 +5,7 @@ import AppStore from'../../stores/AppStore';
 import UserStore from'../../stores/UserStore';
 import classNames from 'classnames';
 import Login from './login.jsx';
-import Register from './register.jsx';
+import Register from './register.js';
 import './dialog.less';
 
 

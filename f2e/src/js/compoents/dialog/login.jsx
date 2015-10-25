@@ -9,7 +9,9 @@ import './dialog.less';
 var Login = React.createClass({
 
     getInitialState: function() {
-        return {loginInfo:null};
+        return {
+            warn:this.getStateFromStore()
+        };
     },
 
     componentDidMount: function() {
@@ -21,23 +23,33 @@ var Login = React.createClass({
     },
 
     _onChange:function(){
-        this.setState(this.getStateFromStore());
-    },
-
-    getStateFromStore:function(){
-        var userInfo = UserStore.getStatus();
-        if(userInfo.code==0){
-            return {
-                loginInfo:userInfo
-            };
-        }else{
-            return {
-                loginInfo:userInfo,
-                warn:userInfo.msg
-            };
+        if(UserStore.getDialogStatus()){
+            console.log("login onChange----><<<<<<");
+            this.setState({
+                warn:this.getStateFromStore()
+            });
+            if(!this.getStateFromStore()){
+                setTimeout(function(){
+                    UserStore.closeUserDialog();
+                },500);
+            }
         }
 
 
+    },
+
+    getStateFromStore:function(){
+
+        var userInfo = UserStore.getStatus();
+        if(userInfo){
+            if(userInfo.code==0){
+                return userInfo.msg;
+            }else{
+                return userInfo.msg
+            }
+        }else {
+            return "";
+        }
     },
 
     render: function() {
