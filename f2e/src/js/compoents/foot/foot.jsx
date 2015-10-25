@@ -27,7 +27,6 @@ var Foot = React.createClass({
     },
 
     findDog: function () {
-        console.log("ffffff---");
         AppActions.actionFindDog();
     },
 
