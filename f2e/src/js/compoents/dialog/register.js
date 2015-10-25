@@ -26,7 +26,7 @@ var Register = React.createClass({
                  preventClick:false,
                  petId:data.id
              });
-         })
+         });
         UserStore.addChangeListener(this._onChange);
     },
 
