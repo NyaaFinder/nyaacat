@@ -6,7 +6,7 @@ import UserStore from'../../stores/UserStore';
 import classNames from 'classnames';
 import Login from './login.jsx';
 import Register from './register.js';
-import './dialog.less';
+//import './dialog.less';
 
 
 var Dialog = React.createClass({

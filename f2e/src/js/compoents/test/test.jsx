@@ -6,6 +6,7 @@ import React from 'react';
 import AppActions from'../../actions/AppActions';
 import AppStore from'../../stores/AppStore';
 import Foot from '../../compoents/foot/foot.jsx';
+import Dialog from '../../compoents/dialog/dialog.jsx';
 
 var Test = React.createClass({
 
@@ -22,7 +23,7 @@ var Test = React.createClass({
     render: function() {
 
         return (
-            <Foot/>
+            <Dialog/>
         );
     }
 });
