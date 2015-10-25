@@ -3,7 +3,7 @@ import React from 'react';
 import UserActions from'../../actions/UserActions';
 import AppStore from'../../stores/AppStore';
 import UserStore from'../../stores/UserStore';
-import './dialog.less';
+//import './dialog.less';
 
 
 var Login = React.createClass({
