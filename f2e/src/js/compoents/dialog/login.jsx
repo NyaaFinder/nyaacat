@@ -17,9 +17,6 @@ var Login = React.createClass({
 
     componentDidMount: function() {
         UserStore.addChangeListener(this._onChange);
-        $(document).delegate(".login .submit",'click',function(){
-            this.login();
-        }.bind(this));
 
     }
     ,
@@ -59,7 +56,6 @@ var Login = React.createClass({
     },
 
     render: function() {
-
         return (
             <div className="form__wrapper login animated fadeIn">
                 <div className="form__wrapper__item">
@@ -70,7 +66,7 @@ var Login = React.createClass({
                     <label htmlFor="password" for="password" name="password">密码</label>
                     <input type="text" className="password" />
                 </div>
-                <div className="form__wrapper__button submit" >登陆</div>
+                <a href="javscript:void(0)" className="form__wrapper__button submit" onClick={this.login}>登陆</a>
                 <div className="warning">{this.state.warn}</div>
             </div>
         );

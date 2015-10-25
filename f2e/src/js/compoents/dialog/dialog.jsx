@@ -8,7 +8,6 @@ import Login from './login.jsx';
 import Register from './register.js';
 import './dialog.less';
 
-
 var Dialog = React.createClass({
 
     getInitialState: function() {
@@ -65,22 +64,22 @@ var Dialog = React.createClass({
                             {this.renderItem()}
                         </div>
                         <div className="sideBar">
-                            <div className={classNames({
+                            <a href="javscript:void(0)" className={classNames({
                             'active':this.state.isLogin,
                             'sideBar__item': true,
                             'sideBar__item-login': true
                         })} onClick={this.changeStatus}>
                                 登陆
-                            </div>
-                            <div className={classNames({
+                            </a>
+                            <a href="javscript:void(0)" className={classNames({
                             'active':!this.state.isLogin,
                             'sideBar__item': true,
                             'sideBar__item-register': true
                         })} onClick={this.changeStatus}>
                                 注册
-                            </div>
+                            </a>
                         </div>
-                        <div className="closeBtn" onClick={this.closeDialog}></div>
+                        <a href="javscript:void(0)" className="closeBtn" onClick={this.closeDialog}></a>
                     </div>
                 </div>
             );
