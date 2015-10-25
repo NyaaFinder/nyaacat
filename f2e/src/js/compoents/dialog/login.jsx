@@ -73,7 +73,7 @@ var Login = React.createClass({
     },
 
     login: function(e) {
-        // e.preventDefault();
+         e.preventDefault();
         var userId = document.querySelector('.userId').value;
         var password = document.querySelector('.password').value;
         var user = {
@@ -82,6 +82,7 @@ var Login = React.createClass({
         };
         console.log("<=====注册对象:",userId,password,"=====>");
         UserActions.actionLogin(user);
+        return false;
 
     }
 

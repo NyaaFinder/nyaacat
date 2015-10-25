@@ -114,7 +114,8 @@ var Register = React.createClass({
         );
     },
 
-    register: function() {
+    register: function(e) {
+        e.preventDefault();
         var q = document.querySelector;
         var user = {
             pet_name:document.querySelector('input.userId').value,
@@ -124,6 +125,7 @@ var Register = React.createClass({
             pet_type:document.querySelector('.petType').value
         };
         UserActions.actionRegister(user);
+        return false;
     }
 
 });
