@@ -4,7 +4,7 @@ import UserActions from'../../actions/UserActions';
 import AppStore from'../../stores/AppStore';
 import UserStore from'../../stores/UserStore';
 import './dialog.less';
-import Jockey from '../../old/jockey.js';
+// import Jockey from '../../old/jockey.js';
 
 
 var Register = React.createClass({
@@ -19,13 +19,13 @@ var Register = React.createClass({
 
     componentDidMount: function() {
 
-        Jockey.on("selectPetsDone",function(data){
-            this.setState({
-                pet:data.name,
-                preventClick:false,
-                petId:data.id
-            });
-        })
+        // Jockey.on("selectPetsDone",function(data){
+        //     this.setState({
+        //         pet:data.name,
+        //         preventClick:false,
+        //         petId:data.id
+        //     });
+        // })
 
         UserStore.addChangeListener(this._onChange);
     },
@@ -60,7 +60,7 @@ var Register = React.createClass({
             this.setState({
                 preventClick:true
             });
-            Jockey.send("selectPets", {},function(){});
+            // Jockey.send("selectPets", {},function(){});
         }
 
 
