@@ -59,7 +59,7 @@ var Login = React.createClass({
     },
 
     login: function(e) {
-        e.preventDefault();
+        // e.preventDefault();
         var userId = document.querySelector('.userId').value;
         var password = document.querySelector('.password').value;
         var user = {
